@@ -456,44 +456,187 @@ input.fi:focus,select.fi:focus,textarea.fi:focus{border-color:var(--navy);}
 }
 
 
-/* STICKY MAIN NAVIGATION */
+/* PRACTICAL BUYER DECISION DASHBOARD */
+.verdict-card{
+  background:linear-gradient(135deg,var(--navy),#17335c);
+  color:#fff;
+  border-radius:var(--rl);
+  padding:24px;
+  margin-bottom:18px;
+  box-shadow:var(--shl);
+}
+.verdict-card .small-label{
+  font-size:10px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.65);
+  font-weight:900;
+}
+.verdict-main{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:18px;
+  flex-wrap:wrap;
+  margin-top:8px;
+}
+.verdict-word{
+  font-size:44px;
+  line-height:.95;
+  font-weight:950;
+}
+.verdict-confidence{
+  background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:16px;
+  padding:12px 16px;
+  min-width:160px;
+}
+.verdict-confidence strong{font-size:26px;display:block;}
+.decision-actions{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:14px;
+  margin-bottom:18px;
+}
+.value-card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--rl);
+  padding:18px;
+  box-shadow:var(--sh);
+}
+.value-card h3{font-size:19px;margin-bottom:5px;}
+.value-card .sub{font-size:11px;color:var(--text2);line-height:1.55;margin-bottom:12px;}
+.big-money{
+  font-size:34px;
+  font-weight:950;
+  line-height:1;
+  color:var(--green-fg);
+  margin:8px 0;
+}
+.metric-list{display:grid;gap:8px;margin-top:8px;}
+.metric-row{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  padding:9px 10px;
+  background:var(--surface2);
+  border-radius:10px;
+  font-size:12px;
+}
+.metric-row span:first-child{color:var(--text2);}
+.metric-row strong{text-align:right;}
+.check-list,.question-list{
+  display:grid;
+  gap:8px;
+  margin-top:10px;
+}
+.check-item{
+  display:flex;
+  align-items:flex-start;
+  gap:8px;
+  font-size:12px;
+  line-height:1.45;
+  color:var(--text);
+}
+.check-item .box{
+  width:18px;
+  height:18px;
+  border:1px solid var(--border);
+  border-radius:5px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  flex-shrink:0;
+  color:var(--green-fg);
+  font-weight:900;
+  background:var(--surface2);
+}
+.risk-pill{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  border-radius:999px;
+  padding:7px 10px;
+  font-size:11px;
+  font-weight:800;
+  background:var(--amber-bg);
+  color:var(--amber-fg);
+  margin:4px 6px 4px 0;
+}
+.question-list li{
+  font-size:12px;
+  line-height:1.45;
+  color:var(--text);
+  background:var(--surface2);
+  border-radius:10px;
+  padding:9px 10px;
+  list-style:none;
+}
+.match-badge{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:999px;
+  background:var(--green-bg);
+  color:var(--green-fg);
+  padding:8px 12px;
+  font-weight:900;
+  font-size:13px;
+  margin-top:8px;
+}
+
+
+/* FORCE TOP NAV ON EVERY PAGE */
 .topbar{
   position:sticky!important;
   top:0!important;
-  z-index:9998!important;
+  z-index:99999!important;
+  width:100%!important;
+  background:var(--surface)!important;
+  border-bottom:1px solid var(--border)!important;
+  box-shadow:0 8px 24px rgba(0,0,0,.08)!important;
 }
 .topnav{
   display:flex!important;
-  align-items:center;
-  gap:4px;
-  overflow-x:auto;
-  scrollbar-width:thin;
-  padding-right:54px;
+  align-items:center!important;
+  gap:6px!important;
+  overflow-x:auto!important;
+  white-space:nowrap!important;
+  scrollbar-width:thin!important;
 }
 .topnav .tn{
-  white-space:nowrap;
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  white-space:nowrap!important;
+  flex:0 0 auto!important;
 }
-@media(max-width:860px){
-  .topnav{
-    display:flex!important;
-    width:100%;
-    order:2;
-    padding:8px 0 0 0;
-  }
+.mob-tabs{
+  display:none!important;
+}
+@media(max-width:900px){
   .topbar{
     height:auto!important;
-    flex-wrap:wrap;
-    padding:10px 14px!important;
+    min-height:auto!important;
+    padding:10px 12px!important;
+    flex-wrap:wrap!important;
     align-items:flex-start!important;
   }
   .brand{
-    width:calc(100% - 90px);
+    width:100%!important;
+    margin-bottom:8px!important;
+  }
+  .topnav{
+    width:100%!important;
+    order:2!important;
+    padding-bottom:4px!important;
   }
   .logout{
-    margin-left:auto;
-  }
-  .mob-tabs{
-    display:none!important;
+    position:absolute!important;
+    right:12px!important;
+    top:12px!important;
   }
 }
 
@@ -949,76 +1092,143 @@ function downloadReport(){
   showReportToast('Report downloaded');
 }
 
+
+function dashboardDecisionData(){
+  const saved=S.saved||[];
+  const homes=saved.length?saved:LISTINGS.slice(0,3);
+  const best=homes.length?[...homes].sort((a,b)=>(b.aiRating||0)-(a.aiRating||0))[0]:LISTINGS[0];
+  const price=best.priceNum||moneyNum(best.price)||650000;
+  const taxes=best.taxNum||moneyNum(best.taxes)||12000;
+  const down=Math.round(price*.10);
+  const mortgage=Math.round(monthlyPI(price,down,6.75,30)+(taxes/12)+(1800/12));
+  const utilities=330;
+  const maintenance=300;
+  const total=mortgage+utilities+maintenance;
+  const budget=5500;
+  const confidence=Math.max(68,Math.min(94,(best.aiRating||82)+4));
+  const verdict=total<=budget && (best.aiRating||0)>=78?'BUY':'REVIEW';
+  const risk=taxes>16000?'Property taxes are above average':(best.aiRating||82)<75?'This home needs deeper review':'No major red flag from demo data';
+  return {saved,homes,best,price,taxes,mortgage,utilities,maintenance,total,budget,confidence,verdict,risk};
+}
+
 function renderDashboard(){
-const hasSaved=S.saved.length>0;
-const avgAI=hasSaved?Math.round(S.saved.reduce((a,h)=>a+h.aiRating,0)/S.saved.length):0;
-const avgUser=hasSaved?(S.saved.reduce((a,h)=>a+h.userRating,0)/S.saved.length).toFixed(1):'0.0';
-const best=hasSaved?[...S.saved].sort((a,b)=>b.aiRating-a.aiRating)[0]:null;
-const premium=calcWhyFit();
+const d=dashboardDecisionData();
+const h=d.best;
 const compareHomes=(S.saved.length?S.saved:LISTINGS.slice(0,3)).slice(0,3);
 return`<div>
 <div class="decision-hero">
 <h2>HomeFit AI™ Buyer Decision Dashboard</h2>
-<p>This is built to help buyers stop guessing. Compare homes by affordability, taxes, commute, schools, resale value, and emotional risk before making an offer.</p>
+<p>This page answers the question buyers actually care about: Should I buy this home, what will it really cost, and what should I check before making an offer?</p>
 </div>
 
-<div class="share-bar"><div><h4>👥 Buyer + Realtor Collaboration</h4><p>Save homes, compare tradeoffs, copy the buyer report, and share notes with your agent.</p></div><div class="share-btns"><button type="button" class="sbtn" id="copy-btn" onclick="copyReport()">📋 Copy Buyer Report</button><button type="button" class="sbtn" onclick="emailReport()">📧 Email to Agent</button><button type="button" class="sbtn" onclick="downloadReport()">⬇ Download Report</button></div></div>
+<div class="share-bar"><div><h4>👥 Buyer + Realtor Collaboration</h4><p>Copy, email, or download the buyer decision report and share it with your agent.</p></div><div class="share-btns"><button type="button" class="sbtn" id="copy-btn" onclick="copyReport()">📋 Copy Buyer Report</button><button type="button" class="sbtn" onclick="emailReport()">📧 Email to Agent</button><button type="button" class="sbtn" onclick="downloadReport()">⬇ Download Report</button></div></div>
 
-<div class="stat-cards">${[{i:'🏠',l:'Saved Homes',v:S.saved.length},{i:'⭐',l:'Avg Buyer Rating',v:avgUser+'/5'},{i:'🤖',l:'Avg AI Fit',v:avgAI+'/100'},{i:'✓',l:'Best Fit',v:best?best.status:'—'}].map(s=>`<div class="stat-card"><div class="sci">${s.i}</div><div class="scl">${s.l}</div><div class="scv">${s.v}</div></div>`).join('')}</div>
-
-<div class="decision-grid">
-<div class="decision-card"><h4>💰 AI Affordability Score</h4><div class="score-ring score-good">${premium.afford}/100</div><p>Estimates payment comfort using price, taxes, insurance, maintenance, and buyer lifestyle risk.</p></div>
-<div class="decision-card"><h4>🧠 Emotional Risk Score</h4><div class="score-ring ${premium.emotion>45?'score-risk':premium.emotion>30?'score-mid':'score-good'}">${premium.emotion}/100</div><p>Flags when a buyer may be ignoring taxes, commute, repairs, or budget because they love the house.</p></div>
-<div class="decision-card"><h4>🏫 School Rating</h4><div class="score-ring score-good">${premium.school}</div><p>Shows family fit and school confidence for the selected or top saved home.</p></div>
-<div class="decision-card"><h4>📈 Resale Score</h4><div class="score-ring score-good">${premium.resale}/100</div><p>Scores long-term resale based on town strength, layout, taxes, commute, and buyer demand.</p></div>
+<div class="verdict-card">
+  <div class="small-label">Allie AI™ Recommendation</div>
+  <div class="verdict-main">
+    <div>
+      <div class="verdict-word">${d.verdict}</div>
+      <p style="color:rgba(255,255,255,.72);font-size:13px;line-height:1.6;margin-top:8px;max-width:620px">Based on the current saved/demo home data, estimated payment, NJ taxes, utilities, maintenance, and overall fit. This is a decision guide, not a lender approval or appraisal.</p>
+    </div>
+    <div class="verdict-confidence"><span style="font-size:10px;text-transform:uppercase;letter-spacing:.09em;color:rgba(255,255,255,.62)">Confidence</span><strong>${d.confidence}%</strong><span style="font-size:11px;color:rgba(255,255,255,.68)">Main risk: ${d.risk}</span></div>
+  </div>
 </div>
 
-<div class="tool-grid">
-<div class="tool-box"><h3>💵 Monthly Payment Calculator</h3><p class="mini">Mortgage + NJ taxes + insurance + maintenance.</p>
-<div class="tool-row">
-  <div class="calc-field"><label>Home Price</label><input class="fi" id="calcPrice" placeholder="Example: 650000" value="${premium.home.priceNum||650000}"></div>
-  <div class="calc-field"><label>Down Payment</label><input class="fi" id="calcDown" placeholder="Example: 65000" value="65000"></div>
-</div>
-<div class="tool-row">
-  <div class="calc-field"><label>Interest Rate %</label><input class="fi" id="calcRate" placeholder="Example: 6.75" value="6.75"></div>
-  <div class="calc-field"><label>Yearly NJ Taxes</label><input class="fi" id="calcTax" placeholder="Example: 12000" value="${premium.home.taxNum||12000}"></div>
-</div>
-<div class="tool-row">
-  <div class="calc-field"><label>Yearly Insurance</label><input class="fi" id="calcIns" placeholder="Example: 1800" value="1800"></div>
-  <div class="calc-field"><label>Monthly Maintenance</label><input class="fi" id="calcMaint" placeholder="Example: 300" value="300"></div>
-</div>
-<button class="btn pri" onclick="calcMortgage()">Calculate Payment</button><div id="mortgageOut" class="tool-result"><strong>Click calculate</strong>Estimate full monthly housing cost.</div></div>
+<div class="decision-actions">
+  <div class="value-card">
+    <h3>💰 Real Monthly Cost</h3>
+    <p class="sub">Mortgage cost and utilities are separated so buyers understand the real monthly picture.</p>
+    <div class="big-money">$${d.total.toLocaleString()}/mo</div>
+    <div class="metric-list">
+      <div class="metric-row"><span>Mortgage + Taxes + Insurance</span><strong>$${d.mortgage.toLocaleString()}</strong></div>
+      <div class="metric-row"><span>Estimated Utilities</span><strong>$${d.utilities.toLocaleString()}</strong></div>
+      <div class="metric-row"><span>Maintenance Reserve</span><strong>$${d.maintenance.toLocaleString()}</strong></div>
+      <div class="metric-row"><span>Target Budget Example</span><strong>$${d.budget.toLocaleString()}</strong></div>
+    </div>
+    <span class="match-badge">${d.total<=d.budget?'✓ Within example budget':'⚠ Over example budget'}</span>
+  </div>
 
-<div class="tool-box"><h3>🚗 Commute Calculator</h3><p class="mini">Shows how much time the commute costs per year.</p>
-<div class="tool-row"><input class="fi" id="commuteMins" placeholder="One-way minutes" value="42"><input class="fi" id="commuteDays" placeholder="Days/week" value="5"></div>
-<button class="btn pri" onclick="calcCommute()">Calculate Commute</button><div id="commuteOut" class="tool-result"><strong>Click calculate</strong>Estimate commute score and yearly time cost.</div></div>
+  <div class="value-card">
+    <h3>🏡 Home Ownership Costs</h3>
+    <p class="sub">Costs buyers often forget after the mortgage payment.</p>
+    <div class="metric-list">
+      <div class="metric-row"><span>Property Taxes</span><strong>$${Math.round(d.taxes).toLocaleString()}/yr</strong></div>
+      <div class="metric-row"><span>Insurance Estimate</span><strong>$1,800/yr</strong></div>
+      <div class="metric-row"><span>Utilities Estimate</span><strong>$${d.utilities}/mo</strong></div>
+      <div class="metric-row"><span>Maintenance Reserve</span><strong>$${d.maintenance}/mo</strong></div>
+    </div>
+    <span class="risk-pill">⚠ Verify taxes, insurance, HOA, flood zone, and inspection items</span>
+  </div>
 
-<div class="tool-box"><h3>🏛️ NJ Property Tax Analyzer</h3><p class="mini">Shows whether taxes are putting pressure on the buyer.</p>
-<div class="tool-row"><input class="fi" id="taxAmount" placeholder="Yearly NJ taxes" value="${premium.home.taxNum||12000}"><input class="fi" id="incomeAmount" placeholder="Yearly income" value="150000"></div>
-<button class="btn pri" onclick="calcTaxRisk()">Analyze Taxes</button><div id="taxOut" class="tool-result"><strong>Click analyze</strong>Check tax pressure against income.</div></div>
+  <div class="value-card">
+    <h3>🚗 Lifestyle Impact</h3>
+    <p class="sub">A home can be affordable but still a poor fit if daily life gets harder.</p>
+    <div class="metric-list">
+      <div class="metric-row"><span>Commute Check</span><strong>Test rush hour</strong></div>
+      <div class="metric-row"><span>Family Impact</span><strong>Review schools/parks</strong></div>
+      <div class="metric-row"><span>Traffic Risk</span><strong>Moderate until verified</strong></div>
+      <div class="metric-row"><span>Buyer Regret Risk</span><strong>${d.total>d.budget?'Higher':'Lower'}</strong></div>
+    </div>
+    <span class="risk-pill">🚗 Use real work commute time before offering</span>
+  </div>
+
+  <div class="value-card">
+    <h3>📈 Future Resale Outlook</h3>
+    <p class="sub">Resale strength comes from town demand, schools, layout, taxes, and condition.</p>
+    <div class="metric-list">
+      <div class="metric-row"><span>Current Best Home</span><strong>${h.address}</strong></div>
+      <div class="metric-row"><span>Price</span><strong>${h.price}</strong></div>
+      <div class="metric-row"><span>AI Fit Guide</span><strong>${h.aiRating||82}/100</strong></div>
+      <div class="metric-row"><span>Resale Outlook</span><strong>${(h.aiRating||82)>=85?'Strong':'Review'}</strong></div>
+    </div>
+    <span class="match-badge">${(h.aiRating||82)>=85?'✓ Strong buyer-fit signal':'⚠ Needs more review'}</span>
+  </div>
 </div>
 
-<div class="card" style="margin-bottom:20px;"><h3>⚖️ Compare Homes Side-by-Side</h3><p class="csub">Uses saved homes first. If none are saved, demo homes appear for testing.</p>
+<div class="dash-grid">
+  <div class="value-card">
+    <h3>❤️ Why This Home Fits You</h3>
+    <p class="sub">This explains the rating in plain English instead of showing random score boxes.</p>
+    <div class="check-list">
+      <div class="check-item"><span class="box">✓</span><span>Current best match is <strong>${h.address}</strong>.</span></div>
+      <div class="check-item"><span class="box">✓</span><span>Estimated monthly ownership cost is separated into mortgage, utilities, and maintenance.</span></div>
+      <div class="check-item"><span class="box">✓</span><span>Taxes are visible so NJ payment pressure is not hidden.</span></div>
+      <div class="check-item"><span class="box">✓</span><span>Buyer can compare homes side-by-side before getting emotionally attached.</span></div>
+    </div>
+    <span class="match-badge">Match Guide: ${h.aiRating||82}%</span>
+  </div>
+
+  <div class="value-card">
+    <h3>⚠ Things To Investigate Before Offering</h3>
+    <div class="check-list">
+      <div class="check-item"><span class="box">☐</span><span>Verify current property taxes and possible reassessment.</span></div>
+      <div class="check-item"><span class="box">☐</span><span>Check flood zone and insurance cost.</span></div>
+      <div class="check-item"><span class="box">☐</span><span>Confirm roof, HVAC, electrical, plumbing, and water issues.</span></div>
+      <div class="check-item"><span class="box">☐</span><span>Verify school assignment, commute, HOA, and seller disclosures.</span></div>
+      <div class="check-item"><span class="box">☐</span><span>Compare the home to recent sold comps before choosing offer price.</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="card" style="margin-top:18px">
+  <h3>📝 Questions To Ask Your Realtor</h3>
+  <p class="csub">These turn the dashboard into action steps.</p>
+  <ul class="question-list">
+    <li>1. What are the best comparable sold homes for this property?</li>
+    <li>2. Are the taxes likely to change after purchase or reassessment?</li>
+    <li>3. How old are the roof, HVAC, water heater, electrical, and major systems?</li>
+    <li>4. Is the home in a flood zone or does it need extra insurance?</li>
+    <li>5. How many offers are expected, and how long has it been on market?</li>
+    <li>6. What inspection issues should we prepare for?</li>
+  </ul>
+</div>
+
+<div class="card" style="margin-top:18px;"><h3>⚖️ Compare Homes Side-by-Side</h3><p class="csub">Uses saved homes first. If none are saved, demo homes appear for testing.</p>
 <table class="compare-table"><thead><tr><th>Home</th><th>Price</th><th>Taxes</th><th>AI Fit</th><th>Resale</th><th>Concern</th></tr></thead><tbody>
 ${compareHomes.map((h,i)=>`<tr><td><div class="compare-address-cell"><span>${h.address}</span><button class="trash-btn" onclick="removeCompareHome(${i})" title="Delete from Compare">🗑️</button></div></td><td>${h.price}</td><td>${h.taxes}</td><td>${h.aiRating||82}/100</td><td>${Math.min(96,(h.aiRating||82)+5)}/100</td><td>${(h.taxNum||0)>16000?'High taxes':(h.aiRating||0)<75?'Needs review':'Strong fit'}</td></tr>`).join('')}
 </tbody></table></div>
 
-<div class="dash-grid"><div class="report-box"><h3>✅ Why This Home Fits You</h3><ul>
-<li>Matches your saved-home behavior and top AI fit score.</li>
-<li>Balances payment, taxes, commute, schools, and resale strength.</li>
-<li>Highlights the best objective reasons to move forward.</li>
-<li>Creates a clean report you can share with your agent.</li>
-</ul></div>
-<div class="warning-box"><h3>⚠️ What To Review Before Offering</h3><ul>
-<li>Verify NJ property taxes and reassessment risk.</li>
-<li>Confirm commute during real rush-hour timing.</li>
-<li>Review inspection items, roof age, HVAC, flood zone, and insurance.</li>
-<li>Do not let emotion override budget comfort.</li>
-</ul></div></div>
-
-<div class="dash-grid"><div class="card"><h3>Save a NJ Home</h3><p class="csub">Add homes you are considering. Allie AI™ will score and compare them.</p><input class="fi" id="ha" placeholder="Property address"><input class="fi" id="hp" placeholder="Price, e.g. $699,000"><input class="fi" id="ht" placeholder="Taxes, e.g. $12,900/year"><input class="fi" id="hb" placeholder="Beds/Baths, e.g. 4 beds · 2.5 baths"><textarea class="fi" id="hn" placeholder="Notes, concerns, must-haves, commute, schools..." rows="3"></textarea><button class="btn pri" onclick="addHome()">Add Home</button></div><div class="card"><h3>Best Saved Home</h3><p class="csub">Allie AI™ highlights the strongest fit based on saved homes.</p>${best?`<div class="shc"><div class="shc-top"><div class="shc-info"><h4>${best.address}</h4><p>${best.price} · ${best.taxes}</p><p>${best.beds}</p><p class="note">${best.notes}</p></div><div class="shc-ratings"><div class="rbox dark"><div class="rl">AI Fit</div><div class="rv">${best.aiRating}/100</div></div><div class="rbox light"><div class="rl">Buyer</div><div class="rv">${best.userRating}/5</div></div></div></div></div>`:`<p class="csub">No saved homes yet. Add or favorite a listing to activate this panel.</p>`}</div></div>
-
-<div class="card"><h3>Saved Homes</h3><p class="csub">Your saved homes, scores, notes, and emotional-risk checks.</p>${S.saved.length?S.saved.map((h,i)=>`<div class="shc"><div class="shc-top"><div class="shc-info"><h4>${h.address}</h4><p>${h.price} · ${h.taxes} · ${h.beds}</p><p class="note">${h.notes}</p><div class="shc-meta"><span class="sb ${h.aiRating>=80?'sf':h.aiRating>=65?'gf':'nr'}">${h.status}</span><span class="tag">AI ${h.aiRating}/100</span><span class="tag">Buyer ${h.userRating}/5</span></div></div><div class="shc-ratings"><button class="btn ghost" onclick="rateHome(${i},1)">⭐ 1</button><button class="btn ghost" onclick="rateHome(${i},3)">⭐ 3</button><button class="btn ghost" onclick="rateHome(${i},5)">⭐ 5</button><button class="btn danger" onclick="removeHome(${i})">Remove</button></div></div><textarea class="notes-input" placeholder="Agent / buyer notes..." oninput="S.saved[${i}].agentNotes=this.value">${h.agentNotes||''}</textarea></div>`).join(''):`<p class="csub">No saved homes yet. Add one above or favorite a listing from the Search page.</p>`}</div>
+<div class="dash-grid" style="margin-top:18px"><div class="card"><h3>Save a NJ Home</h3><p class="csub">Add homes you are considering. Allie AI™ will score and compare them.</p><input class="fi" id="ha" placeholder="Property address"><input class="fi" id="hp" placeholder="Price, e.g. $699,000"><input class="fi" id="ht" placeholder="Taxes, e.g. $12,900/year"><input class="fi" id="hb" placeholder="Beds/Baths, e.g. 4 beds · 2.5 baths"><textarea class="fi" id="hn" placeholder="Notes, concerns, must-haves, commute, schools..." rows="3"></textarea><button class="btn pri" onclick="addHome()">Add Home</button></div><div class="card"><h3>Best Saved Home</h3><p class="csub">Allie AI™ highlights the strongest fit based on saved homes.</p>${S.saved.length?`<div class="shc"><div class="shc-top"><div class="shc-info"><h4>${d.saved[0].address}</h4><p>${d.saved[0].price} · ${d.saved[0].taxes}</p><p>${d.saved[0].beds}</p><p class="note">${d.saved[0].notes}</p></div></div></div>`:`<p class="csub">No saved homes yet. Add or favorite a listing to activate this panel.</p>`}</div></div>
 </div>`;}
 
 function renderReview(){const q=QUESTIONS[S.qStep<QUESTIONS.length?S.qStep:QUESTIONS.length-1];const r=scoreAnswers(S.qAnswers);const pct=(S.qStep/QUESTIONS.length)*100;const sidePanel=`<div class="card"><h3 style="font-size:18px;margin-bottom:4px">What AI Reviews for NJ</h3><div class="divider"></div><div class="rev-points">${[['💰','NJ Property Taxes','Compares taxes against payment comfort and long-term risk.'],['🏫','Schools & Children','Weights school needs, parks, streets, and family lifestyle.'],['📍','Town Fit','Suburb, shore, NYC commute, walkability, privacy, or value.'],['❤️','Emotion Check','Flags when love for the home may be overriding the facts.'],['📋','Due Diligence','Prompts flood zones, inspection, attorney, HOA, insurance.'],['🤝','Realtor Collaboration','Agent notes and buyer scores visible side-by-side for teamwork.']].map(([i,t,d])=>`<div class="pt"><div class="pi">${i}</div><div><h4>${t}</h4><p>${d}</p></div></div>`).join('')}</div></div>`;if(S.qDone){return`<div class="review-grid fade-up"><div class="card"><div style="display:flex;align-items:center;gap:11px;margin-bottom:20px"><div style="width:40px;height:40px;background:var(--navy);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px">🛡️</div><div><h3 style="font-size:20px">NJ Home Fit Questionnaire</h3><p style="font-size:11px;color:var(--text2)">Remove emotion. Expose the real fit.</p></div></div><div class="result-score"><span class="rtag">NJ HomeFit Score</span><div class="rbig">${r.score}<span style="font-size:20px;color:rgba(255,255,255,.4)">/100</span></div><div class="rverdict">${r.verdict}</div><p class="rnote">First-pass tool only. Not a replacement for inspection, lender approval, attorney, title, or local due diligence.</p></div><div class="result-panels"><div class="rpanel pos"><h5>✓ Positive Signals</h5><ul>${(r.pos.length?r.pos:['No strong positives entered yet.']).map(p=>`<li>${p}</li>`).join('')}</ul></div><div class="rpanel flag"><h5>⚠ Risk Flags</h5><ul>${(r.flags.length?r.flags:['No major risk flags detected.']).map(f=>`<li>${f}</li>`).join('')}</ul></div></div><div style="display:flex;gap:8px"><button class="btn pri" onclick="saveReport()">💾 Save Report</button><button class="btn ghost" onclick="restartReview()">↺ Restart</button></div></div>${sidePanel}</div>`;}return`<div class="review-grid fade-up"><div class="card"><div style="display:flex;align-items:center;gap:11px;margin-bottom:20px"><div style="width:40px;height:40px;background:var(--navy);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px">🛡️</div><div><h3 style="font-size:20px">NJ Home Fit Questionnaire</h3><p style="font-size:11px;color:var(--text2)">Remove emotion. Expose the real fit.</p></div></div><div class="progress-bar"><div class="progress-fill" style="width:${pct}%"></div></div><p class="q-counter">Question ${S.qStep+1} of ${QUESTIONS.length} · ${q.cat}</p><p class="q-label">${q.label}</p>${q.type==='select'?`<div class="opts-grid">${q.options.map(o=>`<button class="opt${S.qAnswers[q.id]===o?' on':''}" onclick="answerQ('${q.id}','${o.replace(/'/g,"\\'")}',this)">${o}</button>`).join('')}</div>`:`<textarea class="q-ta" placeholder="${q.placeholder||''}" oninput="S.qAnswers['${q.id}']=this.value">${S.qAnswers[q.id]||''}</textarea>`}<div class="q-nav"><button class="btn ghost" onclick="qBack()" ${S.qStep===0?'disabled':''}>← Back</button><button class="btn pri" onclick="qNext()">Next →</button></div></div>${sidePanel}</div>`;}
